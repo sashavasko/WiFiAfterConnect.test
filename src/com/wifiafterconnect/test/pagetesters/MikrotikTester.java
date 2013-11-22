@@ -99,4 +99,9 @@ public class MikrotikTester implements PortalPageTester {
 				"&clientip=10.59.0.168";
 	}
 
+	@Override
+	public String getMetaRefresh() {
+		return null;
+	}
+
 }

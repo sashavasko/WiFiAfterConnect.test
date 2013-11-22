@@ -217,4 +217,9 @@ public class NNUTester implements PortalPageTester {
 		return "logintype=promo&promo_code=&email=&acceptterms=on";
 	}
 
+	@Override
+	public String getMetaRefresh() {
+		return null;
+	}
+
 }

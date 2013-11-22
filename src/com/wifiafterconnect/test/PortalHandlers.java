@@ -9,8 +9,10 @@ import android.test.mock.MockContext;
 
 import com.wifiafterconnect.ParsedHttpInput;
 import com.wifiafterconnect.WifiAuthParams;
+import com.wifiafterconnect.html.HtmlPage;
 import com.wifiafterconnect.test.pagetesters.CiscoSwitchUrlTester;
 import com.wifiafterconnect.test.pagetesters.ColubrisTester;
+import com.wifiafterconnect.test.pagetesters.GuestNet1Tester;
 import com.wifiafterconnect.test.pagetesters.MikrotikTester;
 import com.wifiafterconnect.test.pagetesters.NNUTester;
 import com.wifiafterconnect.util.Logger;
@@ -27,6 +29,7 @@ public class PortalHandlers extends TestCase {
 		public WifiAuthParams getParams ();
 		public String getPostURL ();
 		public String getPostData ();
+		public String getMetaRefresh();
 	}
 
 	public void executeTester (PortalPageTester tester) {
@@ -51,8 +54,12 @@ public class PortalHandlers extends TestCase {
 			wantParams = new WifiAuthParams();
 		WifiAuthParams haveParams = parsedPage.addMissingParams(null);
 		assertEquals ("Params are incorrect", WifiAuthParams.toString(wantParams), WifiAuthParams.toString(haveParams));
-		
-		assertEquals ("Post URL does not match", tester.getPostURL(), parsedPage.getFormPostURL().toString());
+		if (tester.getPostURL() != null)
+			assertEquals ("Post URL does not match", tester.getPostURL(), parsedPage.getFormPostURL().toString());
+		else {
+			HtmlPage.MetaRefresh mr = parsedPage.getMetaRefresh();
+			assertEquals ("meta Refresh URL does not match", tester.getMetaRefresh(), mr == null ? "null" : mr.getURLString());
+		}
 		assertEquals ("Post Data does not match", tester.getPostData(), parsedPage.buildPostData(wantParams));
 	}
 
@@ -67,5 +74,8 @@ public class PortalHandlers extends TestCase {
 	}
 	public void testNNU (){
 		executeTester (new NNUTester());
+	}
+	public void testGuestNet1 (){
+		executeTester (new GuestNet1Tester());
 	}
 }

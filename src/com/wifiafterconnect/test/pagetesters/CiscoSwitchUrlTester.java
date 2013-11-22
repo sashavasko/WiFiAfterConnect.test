@@ -101,14 +101,17 @@ public class CiscoSwitchUrlTester implements PortalPageTester {
 
 	@Override
 	public String getPostURL() {
-		// TODO Auto-generated method stub
 		return "http://1.1.1.1/login.html";
 	}
 
 	@Override
 	public String getPostData() {
-		// TODO Auto-generated method stub
 		return "buttonClicked=4&redirect_url=149.20.4.71%2Fdebian%2Fpool%2F&err_flag=0&Submit=Accept&Reject=Reject";
+	}
+
+	@Override
+	public String getMetaRefresh() {
+		return null;
 	}
 
 }

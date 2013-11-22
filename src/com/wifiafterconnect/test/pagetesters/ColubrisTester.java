@@ -140,4 +140,9 @@ public class ColubrisTester implements PortalPageTester {
 		"";
 	}
 
+	@Override
+	public String getMetaRefresh() {
+		return null;
+	}
+
 }

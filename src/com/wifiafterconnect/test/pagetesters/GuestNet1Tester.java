@@ -9,81 +9,80 @@ public class GuestNet1Tester implements PortalPageTester {
 
 	@Override
 	public String getURL() {
-		// TODO Auto-generated method stub
-		return null;
+		return "http://10.0.0.1:8000/index.php?redirurl=http%3A%2F%2F149.20.4.71%2Fdebian%2Fpool%2F";
 	}
 
 	@Override
 	public String getInput() {
-		return "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">"+
-"				<html>"+
-"				<head>"+
-"				<script type=\"text/javascript\">"+
-"						var HotelBrand, HotelGroup, HotelId, cpUrl, ControllerType, pAction, usr, pwd, redir ;"+
-"						pAction = \"http://10.0.0.1:8000/&err=\";"+
-"				// Set manual variables below."+	  
-"						/* Controller Types"+
-"							es = \"EthoStream\""+
-"							gn = \"Guestnet Gateway\""+
-"							mt = \"Microtik\""+
-"							nx = \"Nomadix\""+
-"							vp = \"ValuePoint\""+
-"						*/"+
-"					// ControllerType = \"vp\";    // Set Controller Type Here"+
-"						/* Hotel Brands"+
-"							hi = \"Holiday Inn\""+
-"							hie = \"Holiday Inn Express\""+
-"							ms = \"Mainstay\""+
-"							cw = \"Candlewood\""+
-"							sb = \"Staybridge\""+
-"							ci = \"Comfort Inn\""+
-"							bw = \"Best Western\""+
-"							fp = \"Four Points by Sheraton\""+
-"							s8 = \"Super 8\""+
-"							*/"+
-"					// HotelGroup = \"tr\";    // Manually Set Hotel Group Here"+
-"					// HotelBrand = \"s8\";    // Manually Set Hotel Brand Here"+
-"					// HotelId = \"20177\";    // Manually Set Hotel Code Here"+
-"					 // usr = \"PC103\";    // Manually Set User Here"+
-"					// pwd = \"yes\";    // Only use \"yes\" or \"no\" to manually indicate that guests need a pass code."+
-"						/* Use redir if you want to specify a manual redirect page."+
-"							e.g. \"http://www.wiscohotels.com/wiscobaymont/index.php\")"+
-"							*/"+
-"					// redir = \"\";"+    
-"				// Do NOT change anything below this line!"+
-"						cpUrl = \"http://login.guestnetinc.com/login.php?\";"+
-"							cpUrl += \"pa=\" + pAction;"+
-"						if (ControllerType){"+
-"							cpUrl += \"&\" + \"ct=\" + ControllerType;"+
-"						}"+
-"						if (HotelGroup){"+
-"							cpUrl += \"&\" + \"hg=\" + HotelGroup;"+
-"						}"+
-"						if (HotelBrand){"+
-"							cpUrl += \"&\" + \"hb=\" + HotelBrand;"+
-"						}"+
-"						if (HotelId){"+
-"							cpUrl += \"&\" + \"id=\" + HotelId;"+
-"						}"+
-"						if (usr) {"+
-"							cpUrl += \"&\" + \"usr=\" + usr;"+
-"						}"+
-"						if (pwd) {"+
-"							cpUrl += \"&\" + \"pwd=\" + pwd;"+
-"						}"+
-"						if (redir) {"+
-"							cpUrl += \"&\" + \"redir=\" + redir;"+
-"						}"+
-"				</script>"+
-"				<title>Login</title>"+
-"				<script language=\"JavaScript\">"+
-"				document.write('<meta http-equiv=\"REFRESH\" content=\"0;url=' + cpUrl + '\">');"+
-"				</script>"+
-"				</HEAD> "+
-"				<BODY>"+
-"				Please wait for Login Page . . ."+ 
-"				</BODY>"+
-"				</HTML>";
+		return "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">\n"+
+"				<html>\n"+
+"				<head>\n"+
+"				<script type=\"text/javascript\">\n"+
+"						var HotelBrand, HotelGroup, HotelId, cpUrl, ControllerType, pAction, usr, pwd, redir ;\n"+
+"						pAction = \"http://10.0.0.1:8000/&err=\";\n"+
+"				// Set manual variables below.\n"+	  
+"						/* Controller Types\n"+
+"							es = \"EthoStream\"\n"+
+"							gn = \"Guestnet Gateway\"\n"+
+"							mt = \"Microtik\"\n"+
+"							nx = \"Nomadix\"\n"+
+"							vp = \"ValuePoint\"\n"+
+"						*/\n"+
+"					// ControllerType = \"vp\";    // Set Controller Type Here\n"+
+"						/* Hotel Brands\n"+
+"							hi = \"Holiday Inn\"\n"+
+"							hie = \"Holiday Inn Express\"\n"+
+"							ms = \"Mainstay\"\n"+
+"							cw = \"Candlewood\"\n"+
+"							sb = \"Staybridge\"\n"+
+"							ci = \"Comfort Inn\"\n"+
+"							bw = \"Best Western\"\n"+
+"							fp = \"Four Points by Sheraton\"\n"+
+"							s8 = \"Super 8\"\n"+
+"							*/\n"+
+"					// HotelGroup = \"tr\";    // Manually Set Hotel Group Here\n"+
+"					// HotelBrand = \"s8\";    // Manually Set Hotel Brand Here\n"+
+"					// HotelId = \"20177\";    // Manually Set Hotel Code Here\n"+
+"					 // usr = \"PC103\";    // Manually Set User Here\n"+
+"					// pwd = \"yes\";    // Only use \"yes\" or \"no\" to manually indicate that guests need a pass code.\n"+
+"						/* Use redir if you want to specify a manual redirect page.\n"+
+"							e.g. \"http://www.wiscohotels.com/wiscobaymont/index.php\")\n"+
+"							*/\n"+
+"					// redir = \"\";\n"+    
+"				// Do NOT change anything below this line!\n"+
+"						cpUrl = \"http://login.guestnetinc.com/login.php?\";\n"+
+"							cpUrl += \"pa=\" + pAction;\n"+
+"						if (ControllerType){\n"+
+"							cpUrl += \"&\" + \"ct=\" + ControllerType;\n"+
+"						}\n"+
+"						if (HotelGroup){\n"+
+"							cpUrl += \"&\" + \"hg=\" + HotelGroup;\n"+
+"						}\n"+
+"						if (HotelBrand){\n"+
+"							cpUrl += \"&\" + \"hb=\" + HotelBrand;\n"+
+"						}\n"+
+"						if (HotelId){\n"+
+"							cpUrl += \"&\" + \"id=\" + HotelId;\n"+
+"						}\n"+
+"						if (usr) {\n"+
+"							cpUrl += \"&\" + \"usr=\" + usr;\n"+
+"						}\n"+
+"						if (pwd) {\n"+
+"							cpUrl += \"&\" + \"pwd=\" + pwd;\n"+
+"						}\n"+
+"						if (redir) {\n"+
+"							cpUrl += \"&\" + \"redir=\" + redir;\n"+
+"						}\n"+
+"				</script>\n"+
+"				<title>Login</title>\n"+
+"				<script language=\"JavaScript\">\n"+
+"				document.write('<meta http-equiv=\"REFRESH\" content=\"0;url=' + cpUrl + '\">');\n"+
+"				</script>\n"+
+"				</HEAD> \n"+
+"				<BODY>\n"+
+"				Please wait for Login Page . . .\n"+ 
+"				</BODY>\n"+
+"				</HTML>\n";
 	}
 
 	@Override
@@ -102,20 +101,22 @@ public class GuestNet1Tester implements PortalPageTester {
 
 	@Override
 	public WifiAuthParams getParams() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getPostURL() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public String getPostData() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getMetaRefresh() {
+		return "http://login.guestnetinc.com/login.php?pa=http://10.0.0.1:8000/&err=";
 	}
 
 }
