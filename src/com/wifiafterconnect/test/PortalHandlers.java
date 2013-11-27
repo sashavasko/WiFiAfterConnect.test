@@ -15,6 +15,7 @@ import com.wifiafterconnect.test.pagetesters.ColubrisTester;
 import com.wifiafterconnect.test.pagetesters.GuestNet1Tester;
 import com.wifiafterconnect.test.pagetesters.MikrotikTester;
 import com.wifiafterconnect.test.pagetesters.NNUTester;
+import com.wifiafterconnect.test.pagetesters.WifiSoftTester;
 import com.wifiafterconnect.util.Logger;
 import com.wifiafterconnect.util.Worker;
 
@@ -57,8 +58,8 @@ public class PortalHandlers extends TestCase {
 		if (tester.getPostURL() != null)
 			assertEquals ("Post URL does not match", tester.getPostURL(), parsedPage.getFormPostURL().toString());
 		else {
-			HtmlPage.MetaRefresh mr = parsedPage.getMetaRefresh();
-			assertEquals ("meta Refresh URL does not match", tester.getMetaRefresh(), mr == null ? "null" : mr.getURLString());
+			URL refreshURL = parsedPage.makeRefreshURL(null);
+			assertEquals ("meta Refresh URL does not match", tester.getMetaRefresh(), refreshURL == null ? "null" : refreshURL.toString());
 		}
 		assertEquals ("Post Data does not match", tester.getPostData(), parsedPage.buildPostData(wantParams));
 	}
@@ -77,5 +78,9 @@ public class PortalHandlers extends TestCase {
 	}
 	public void testGuestNet1 (){
 		executeTester (new GuestNet1Tester());
+	}
+	
+	public void testWifiSoft (){
+		executeTester (new WifiSoftTester());
 	}
 }
