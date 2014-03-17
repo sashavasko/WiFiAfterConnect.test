@@ -5,11 +5,16 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.content.Context;
+import android.test.InstrumentationTestCase;
 import android.test.mock.MockContext;
 
+import com.wifiafterconnect.Constants;
 import com.wifiafterconnect.ParsedHttpInput;
+import com.wifiafterconnect.URLRedirectChecker;
 import com.wifiafterconnect.WifiAuthParams;
-import com.wifiafterconnect.html.HtmlPage;
+import com.wifiafterconnect.http.HttpConnectionFactory;
+import com.wifiafterconnect.test.http.HHonorsConnTester;
 import com.wifiafterconnect.test.pagetesters.CiscoSwitchUrlTester;
 import com.wifiafterconnect.test.pagetesters.ColubrisTester;
 import com.wifiafterconnect.test.pagetesters.GuestNet1Tester;
@@ -21,7 +26,7 @@ import com.wifiafterconnect.util.Worker;
 
 import junit.framework.TestCase;
 
-public class PortalHandlers extends TestCase {
+public class PortalHandlers extends InstrumentationTestCase {
 	
 	public interface PortalPageTester {
 		public String getURL();
@@ -82,5 +87,14 @@ public class PortalHandlers extends TestCase {
 	
 	public void testWifiSoft (){
 		executeTester (new WifiSoftTester());
+	}
+
+	public void testHHonors (){
+		//executeTester (new WifiSoftTester());
+		Context ctx = getInstrumentation().getContext();
+		URLRedirectChecker checker = new URLRedirectChecker (Constants.TAG, ctx);
+		HttpConnectionFactory.INSTANCE.setConnectionInstance(new HHonorsConnTester(ctx));
+		checker.setSaveLogFile (null);
+		checker.checkHttpConnection ();
 	}
 }
